@@ -13,7 +13,7 @@ type User = {
     }
 }
 
-export default async function Subscribe (req: NextApiRequest, res: NextApiResponse) {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
     if(req.method === 'POST') {
         const session = await getSession({ req })
 
@@ -58,8 +58,8 @@ export default async function Subscribe (req: NextApiRequest, res: NextApiRespon
             ],
             mode: 'subscription',
             allow_promotion_codes: true,
-            success_url: process.env.STRIPE_SUCCESS_URL,
-            cancel_url: process.env.STRIPE_CANCEL_URL,
+            success_url: 'http://localhost:3000/posts',
+            cancel_url: 'http://localhost:3000/',
         })
 
         return res.status(200).json({ sessionId: StripeCheckoutSession.id })
