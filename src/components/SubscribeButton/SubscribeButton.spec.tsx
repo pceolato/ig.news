@@ -15,7 +15,7 @@ describe('SubscribeButton component', () => {
     });
 
     it('renders correctly when user is not authenticated', () => {
-        render(<SubscribeButton priceId="" />)
+        render(<SubscribeButton />)
 
         expect(screen.getByText('Subscribe now')).toBeInTheDocument()
     });
@@ -29,7 +29,7 @@ describe('SubscribeButton component', () => {
           status: 'unauthenticated'
         });
 
-        render(<SubscribeButton priceId="" />)
+        render(<SubscribeButton />)
 
         const subscribeButton = screen.getByText('Subscribe now');
 
@@ -56,7 +56,7 @@ describe('SubscribeButton component', () => {
             push: pushMock,
         } as any)
 
-        render(<SubscribeButton priceId="" />)
+        render(<SubscribeButton />)
 
         const subscribeButton = screen.getByText('Subscribe now')
 
