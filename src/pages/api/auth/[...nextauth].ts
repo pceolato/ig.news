@@ -18,6 +18,9 @@ export default NextAuth({
     // ...add more providers here
   ],
   secret: process.env.NEXTAUTH_SECRET,
+  session: {
+    maxAge: 30 * 24 * 60 * 60, // 30 days,  
+  },
   callbacks: {
     async session({ session }) {
       if (!session.user?.email) {
